@@ -1,3 +1,3 @@
 Professional Website.
 
-Developed using the Particle Jekyll theme. https://github.com/nrandecker/particle
+Developed using a React Portfolio Template found here: https://github.com/yujisatojr/react-portfolio-template.
