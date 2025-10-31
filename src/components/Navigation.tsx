@@ -1,27 +1,42 @@
+// React
 import React, { useEffect, useState } from "react";
+
+// Material-UI Components
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
-import DarkModeIcon from '@mui/icons-material/DarkMode';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
-import LightModeIcon from '@mui/icons-material/LightMode';
 import List from '@mui/material/List';
-import ListIcon from '@mui/icons-material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
-import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 
+// Material-UI Icons
+import DarkModeIcon from '@mui/icons-material/DarkMode';
+import LightModeIcon from '@mui/icons-material/LightMode';
+import ListIcon from '@mui/icons-material/List';
+import MenuIcon from '@mui/icons-material/Menu';
+
+// Utils
+import { getThemeColors, COLORS, TYPOGRAPHY } from '../utils/themeUtils';
+
+// Types
+import type { NavigationProps } from '../types';
+
 const drawerWidth = 240;
-const navItems = [['Expertise', 'expertise'], ['Education', 'education'], ['Experience', 'history'], ['Projects', 'projects']];
+const navItems: [string, string][] = [
+  ['Expertise', 'expertise'],
+  ['Education', 'education'],
+  ['Experience', 'history'],
+  ['Projects', 'projects']
+];
 
-function Navigation({parentToChild, modeChange}: any) {
-
-  const {mode} = parentToChild;
+function Navigation({ parentToChild, modeChange }: NavigationProps) {
+  const { mode } = parentToChild;
 
   const [mobileOpen, setMobileOpen] = useState<boolean>(false);
   const [scrolled, setScrolled] = useState<boolean>(false);
@@ -47,17 +62,14 @@ function Navigation({parentToChild, modeChange}: any) {
   }, []);
 
   const scrollToSection = (section: string) => {
-    console.log(section)
-    const expertiseElement = document.getElementById(section);
-    if (expertiseElement) {
-      expertiseElement.scrollIntoView({ behavior: 'smooth' });
-      console.log('Scrolling to:', expertiseElement);  // Debugging: Ensure the element is found
-    } else {
-      console.error('Element with id "expertise" not found');  // Debugging: Log error if element is not found
+    const sectionElement = document.getElementById(section);
+    if (sectionElement) {
+      sectionElement.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
   const isDarkMode = mode === 'dark';
+  const themeColors = getThemeColors(isDarkMode);
 
   const drawer = (
     <Box 
@@ -65,15 +77,15 @@ function Navigation({parentToChild, modeChange}: any) {
       onClick={handleDrawerToggle} 
       sx={{ 
         textAlign: 'center',
-        backgroundColor: isDarkMode ? '#0d1116' : '#f8f9fa',
+        backgroundColor: themeColors.background,
         height: '100%',
       }}
     >
       <Box
         sx={{
           padding: '16px',
-          color: isDarkMode ? 'var(--dark-mode-text)' : '#0d1116',
-          fontFamily: '"Lato", sans-serif',
+          color: themeColors.text,
+          fontFamily: TYPOGRAPHY.fontFamily,
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
@@ -81,23 +93,23 @@ function Navigation({parentToChild, modeChange}: any) {
           fontWeight: 'bold',
         }}
       >
-        <ListIcon sx={{ color: isDarkMode ? 'var(--dark-mode-text)' : '#0d1116' }} />
-        <p className="mobile-menu-top" style={{ margin: 0, color: isDarkMode ? 'var(--dark-mode-text)' : '#0d1116' }}>
+        <ListIcon sx={{ color: themeColors.text }} />
+        <p className="mobile-menu-top" style={{ margin: 0, color: themeColors.text }}>
           Menu
         </p>
       </Box>
-      <Divider sx={{ backgroundColor: isDarkMode ? 'rgba(228, 228, 228, 0.1)' : 'rgba(13, 17, 22, 0.1)' }} />
+      <Divider sx={{ backgroundColor: themeColors.divider }} />
       <List>
         {navItems.map((item) => (
           <ListItem key={item[0]} disablePadding>
             <ListItemButton 
               sx={{ 
                 textAlign: 'center',
-                color: isDarkMode ? 'var(--dark-mode-text)' : '#0d1116',
-                fontFamily: '"Lato", sans-serif',
+                color: themeColors.text,
+                fontFamily: TYPOGRAPHY.fontFamily,
                 '&:hover': {
-                  backgroundColor: isDarkMode ? 'rgba(228, 228, 228, 0.1)' : 'rgba(13, 17, 22, 0.05)',
-                  color: 'var(--icon-bg-color)',
+                  backgroundColor: themeColors.hoverBackground,
+                  color: COLORS.theme.accent,
                 },
               }} 
               onClick={() => scrollToSection(item[1])}
@@ -105,15 +117,15 @@ function Navigation({parentToChild, modeChange}: any) {
               <ListItemText 
                 primary={item[0]}
                 primaryTypographyProps={{
-                  fontFamily: '"Lato", sans-serif',
-                  color: isDarkMode ? 'var(--dark-mode-text)' : '#0d1116',
+                  fontFamily: TYPOGRAPHY.fontFamily,
+                  color: themeColors.text,
                   sx: {
-                    color: `${isDarkMode ? 'var(--dark-mode-text)' : '#0d1116'} !important`,
+                    color: `${themeColors.text} !important`,
                   },
                 }}
                 sx={{
                   '& .MuiTypography-root': {
-                    color: `${isDarkMode ? 'var(--dark-mode-text)' : '#0d1116'} !important`,
+                    color: `${themeColors.text} !important`,
                   },
                 }}
               />
@@ -139,9 +151,17 @@ function Navigation({parentToChild, modeChange}: any) {
             <MenuIcon />
           </IconButton>
           {mode === 'dark' ? (
-            <LightModeIcon onClick={() => modeChange()}/>
+            <LightModeIcon 
+              onClick={modeChange}
+              aria-label="Switch to light mode"
+              sx={{ cursor: 'pointer' }}
+            />
           ) : (
-            <DarkModeIcon onClick={() => modeChange()}/>
+            <DarkModeIcon 
+              onClick={modeChange}
+              aria-label="Switch to dark mode"
+              sx={{ cursor: 'pointer' }}
+            />
           )}
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
             {navItems.map((item) => (
@@ -165,7 +185,7 @@ function Navigation({parentToChild, modeChange}: any) {
             '& .MuiDrawer-paper': { 
               boxSizing: 'border-box', 
               width: drawerWidth,
-              backgroundColor: isDarkMode ? '#0d1116' : '#f8f9fa',
+              backgroundColor: themeColors.background,
             },
           }}
         >

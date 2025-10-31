@@ -1,0 +1,208 @@
+/**
+ * SASS Variables - Theme Configuration
+ * 
+ * This file contains all theme variables for easy customization.
+ * Modify values here to change the entire site's appearance.
+ * 
+ * Best Practices Applied:
+ * - Semantic naming (function-based, not color-based)
+ * - Centralized location for all theme values
+ * - Organized with SASS maps for scalability
+ * - CSS custom properties generated from SASS variables
+ */
+
+// ============================================
+// PRIMARY THEME COLORS
+// ============================================
+
+// Main accent color (used for icons, hover states, highlights)
+$theme-accent: #df3636;
+$theme-accent-gradient: #e36060;
+
+// Extract RGB components for rgba() usage
+$theme-accent-r: 223;
+$theme-accent-g: 54;
+$theme-accent-b: 54;
+
+// ============================================
+// COLOR PALETTE
+// ============================================
+
+// Base colors
+$color-dark-bg: #0d1116;        // Dark mode background
+$color-light-bg: #f8f9fa;       // Light mode background
+$color-text-dark: #0d1116;      // Dark text (for light mode)
+$color-text-light: #e4e4e4;     // Light text (for dark mode)
+
+// Neutral colors
+$color-neutral-dark: rgb(39, 40, 34);     // Dark neutral text
+$color-neutral-gray: rgba(0, 0, 0, 0.08); // Light gray overlay
+
+// Text opacity variants
+$text-opacity-full: 1;
+$text-opacity-high: 0.95;
+$text-opacity-medium: 0.9;
+$text-opacity-low: 0.8;
+$text-opacity-soft: 0.7;
+
+// Background opacity variants
+$bg-opacity-heavy: 0.2;
+$bg-opacity-medium: 0.15;
+$bg-opacity-light: 0.1;
+$bg-opacity-soft: 0.05;
+
+// ============================================
+// THEME MAPS (Best Practice: SASS Maps)
+// ============================================
+
+$theme-dark: (
+  // Background
+  background: $color-dark-bg,
+  
+  // Text colors
+  text: $color-text-light,
+  text-soft: rgba(228, 228, 228, $text-opacity-medium),
+  text-softer: rgba(228, 228, 228, $text-opacity-high),
+  
+  // UI elements
+  content-bg: rgba(228, 228, 228, $bg-opacity-light),
+  arrow: rgba(228, 228, 228, $bg-opacity-light),
+  divider: rgba(228, 228, 228, $bg-opacity-light),
+  hover-bg: rgba(228, 228, 228, $bg-opacity-light),
+  
+  // Timeline specific
+  timeline-line: rgba(228, 228, 228, $bg-opacity-medium),
+  timeline-icon-shadow-1: rgba(228, 228, 228, $bg-opacity-medium),
+  timeline-icon-shadow-2: rgba(228, 228, 228, $bg-opacity-soft),
+  
+  // Card/Content backgrounds
+  card-bg: rgba(255, 255, 255, $bg-opacity-soft),
+  card-border: rgba(255, 255, 255, $bg-opacity-light)
+);
+
+$theme-light: (
+  // Background
+  background: $color-light-bg,
+  
+  // Text colors
+  text: $color-text-dark,
+  text-soft: rgba(13, 17, 22, $text-opacity-medium),
+  text-softer: rgba(13, 17, 22, $text-opacity-high),
+  
+  // UI elements
+  content-bg: white,
+  arrow: white,
+  divider: rgba(13, 17, 22, $bg-opacity-light),
+  hover-bg: rgba(13, 17, 22, $bg-opacity-soft),
+  
+  // Timeline specific
+  timeline-line: rgba(0, 0, 0, $bg-opacity-soft),
+  timeline-icon-shadow-1: white,
+  timeline-icon-shadow-2: rgba(0, 0, 0, $bg-opacity-soft),
+  
+  // Card/Content backgrounds
+  card-bg: rgba(13, 17, 22, $bg-opacity-soft),
+  card-border: rgba(13, 17, 22, $bg-opacity-light)
+);
+
+// Helper function to get theme value
+@function theme-color($theme, $key) {
+  @return map-get($theme, $key);
+}
+
+// ============================================
+// TYPOGRAPHY
+// ============================================
+
+$font-family-primary: "Lato", sans-serif;
+$font-family-code: 'Courier Prime', monospace;
+$font-family-system: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+  "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+$font-family-monospace: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+
+// Font sizes
+$font-size-base: 1.1rem;
+$font-size-code: 1rem;
+$font-size-small: 0.8rem;
+
+// ============================================
+// SPACING
+// ============================================
+
+$spacing-xs: 5px;
+$spacing-sm: 10px;
+$spacing-md: 20px;
+$spacing-lg: 30px;
+$spacing-xl: 40px;
+$spacing-xxl: 50px;
+
+// Container padding
+$container-padding-mobile: 5%;
+$container-padding-desktop: 10%;
+
+// ============================================
+// TRANSITIONS
+// ============================================
+
+$transition-fast: 0.15s ease-in-out;
+$transition-normal: 0.3s ease;
+$transition-slow: 0.5s ease;
+
+// ============================================
+// SHADOWS
+// ============================================
+
+// Material Design shadows
+$shadow-sm: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 
+            0px 2px 2px 0px rgba(0, 0, 0, 0.14), 
+            0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+
+$shadow-md: 0 5px 15px;
+$shadow-lg: 0 10px 30px;
+
+// Shadow opacities
+$shadow-opacity-light: 0.15;
+$shadow-opacity-medium: 0.2;
+$shadow-opacity-heavy: 0.3;
+
+// ============================================
+// BORDER RADIUS
+// ============================================
+
+$border-radius-sm: 5px;
+$border-radius-md: 12px;
+$border-radius-full: 50%;
+
+// ============================================
+// BREAKPOINTS
+// ============================================
+
+$breakpoint-mobile: 567px;
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1170px;
+$breakpoint-large: 1260px;
+
+// ============================================
+// COMPONENT SIZES
+// ============================================
+
+// Navigation
+$navbar-height: 64px;
+
+// Header/About section
+$header-height: 450px;
+$about-min-height: 700px;
+$avatar-size: 150px;
+
+// Icon sizes
+$icon-size-sm: 15px;
+$icon-size-md: 1.5em;
+$icon-size-lg: 3em;
+
+// ============================================
+// CSS CUSTOM PROPERTIES GENERATION
+// ============================================
+
+// These will be used to generate CSS custom properties in :root
+// This allows both SASS and CSS variable usage
+

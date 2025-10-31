@@ -1,5 +1,8 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
+/CONTENT_EDITING_GUIDE.md
+/THEME_CUSTOMIZATION_GUIDE.md
+
 # dependencies
 /node_modules
 /.pnp

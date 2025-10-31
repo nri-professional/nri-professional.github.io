@@ -1,20 +1,21 @@
+// React
 import React from "react";
-import '@fortawesome/free-regular-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGraduationCap } from '@fortawesome/free-solid-svg-icons';
 
-interface EducationCardProps {
-  institution: string;
-  degree: string;
-  period: string;
-  gpa?: string;
-}
+// FontAwesome
+import '@fortawesome/free-regular-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+// Utils
+import { ICONS } from '../../utils/icons';
+
+// Types
+import type { EducationCardProps } from '../../types';
 
 function EducationCard({ institution, degree, period, gpa }: EducationCardProps) {
   return (
     <div className="education-card">
       <div className="education-icon">
-        <FontAwesomeIcon icon={faGraduationCap} size="3x"/>
+        <FontAwesomeIcon icon={ICONS.graduationCap} size="3x"/>
       </div>
       <div className="education-content">
         <h2>{institution}</h2>

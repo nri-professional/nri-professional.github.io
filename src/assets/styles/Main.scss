@@ -1,15 +1,17 @@
+@import './variables';
+
 .dark-mode .about-section {
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, $bg-opacity-medium);
 }
 
 .about-section {
     display: flex;
-    gap: 30px;
+    gap: $spacing-lg;
     justify-content: flex-start;
     align-items: center;
     width: 100%;
     padding: 0px 15%;
-    min-height: 700px;
+    min-height: $about-min-height;
     background-image: url("../images/bg-dark.png");
     background-repeat: no-repeat;
     background-size: cover;
@@ -24,11 +26,13 @@
     .social_icons {
         display: flex;
         flex-direction: row;
-        gap: 10px;
-        color: var(--dark-mode-text);
+        gap: $spacing-sm;
+        color: theme-color($theme-dark, text);
+        transition: color $transition-normal;
 
         svg {
             font-size: 1.8em;
+            color: inherit;
         }
     }
 
@@ -64,14 +68,14 @@
 }
 
 /* Fix for mobile devices that don't support background-attachment: fixed */
-@media (max-width: 768px) {
+@media (max-width: $breakpoint-tablet) {
     .about-section {
         background-attachment: scroll !important;
     }
 }
 
 @media screen {
-    @media (max-width: 567px) {
+    @media (max-width: $breakpoint-mobile) {
         .nav-left{
             padding-top: 20px;
             float:left;
@@ -86,10 +90,10 @@
         }
 
         .nav-right li {
-            padding: 10px 15px;
+            padding: $spacing-sm 15px;
             list-style:none;
             font-size:13px;
-            color: var(--dark-mode-text);
+            color: theme-color($theme-dark, text);
             width: 10%;
         }
 
@@ -104,13 +108,13 @@
         }
 
         .about {
-            padding-left: 5%;
-            padding-right: 5%;
+            padding-left: $container-padding-mobile;
+            padding-right: $container-padding-mobile;
             font-size: 12px;
         }
     }
 
-    @media (max-width:768px) {
+    @media (max-width: $breakpoint-tablet) {
         .about-section h1 {
             font-size: 2em !important;
             text-align: left;
@@ -133,10 +137,12 @@
             display: flex !important;
             flex-direction: row;
             gap: 10px;
-            color: var(--dark-mode-text);
+            color: theme-color($theme-dark, text);
+            transition: color $transition-normal;
     
             svg {
                 font-size: 1.8em;
+                color: inherit;
             }
         }
 
@@ -149,14 +155,35 @@
 
         .about-section .content {
             width: 90%;
-            padding-left: 5%;
-            padding-right: 5%;
-            padding-bottom: 5%;
+            padding-left: $container-padding-mobile;
+            padding-right: $container-padding-mobile;
+            padding-bottom: $container-padding-mobile;
         }
 
         .about-section .image-wrapper {
-            padding-left: 5%;
+            padding-left: $container-padding-mobile;
             width: 100%;
+        }
+    }
+}
+
+// Light mode styles for social icons
+.light-mode {
+    .about-section .content {
+        .social_icons {
+            color: theme-color($theme-light, text);
+
+            svg {
+                color: inherit;
+            }
+        }
+    }
+
+    .mobile_social_icons {
+        color: theme-color($theme-light, text);
+
+        svg {
+            color: inherit;
         }
     }
 }

@@ -1,12 +1,14 @@
+@import './variables';
+
 .skills-container {
-    padding: 5% 10%;
+    padding: $container-padding-mobile $container-padding-desktop;
     display: flex;
     flex-direction: column;
     text-align: left;
 
     svg {
-        color: var(--dark-mode-text);
-        transition: color 0.3s ease;
+        color: theme-color($theme-dark, text);
+        transition: color $transition-normal;
     }
 
     .skill svg {
@@ -15,10 +17,10 @@
     }
 }
   
-.skills-container .skills-grid {
+  .skills-container .skills-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-gap: 50px;
+    grid-gap: $spacing-xxl;
 }
   
 .skills-container .skills-grid .skill {
@@ -27,30 +29,30 @@
 }
   
 .chip {
-    color: rgb(39, 40, 34) !important;
+    color: $color-neutral-dark !important;
     background-color: white !important;
-    font-size: 0.8rem !important;
+    font-size: $font-size-small !important;
     height: 25px !important;
-    transition: background-color 0.3s ease, color 0.3s ease !important;
+    transition: background-color $transition-normal, color $transition-normal !important;
   
     span {
-        font-family: 'Courier Prime', monospace;
-        color: rgb(39, 40, 34);
-        transition: color 0.3s ease;
+        font-family: $font-family-code;
+        color: $color-neutral-dark;
+        transition: color $transition-normal;
     }
-  
+
     svg {
-        height: 15px !important;
+        height: $icon-size-sm !important;
     }
 }
 
 .dark-mode {
     .chip {
-        background-color: rgba(228, 228, 228, 0.15) !important;
-        color: var(--dark-mode-text) !important;
+        background-color: theme-color($theme-dark, timeline-icon-shadow-1) !important;
+        color: theme-color($theme-dark, text) !important;
 
         span {
-            color: var(--dark-mode-text) !important;
+            color: theme-color($theme-dark, text) !important;
         }
     }
 }
@@ -60,8 +62,8 @@
     margin: 0.5;
 
     .chip-title {
-        color: var(--dark-mode-text);
-        padding-right: 10px;
+        color: theme-color($theme-dark, text);
+        padding-right: $spacing-sm;
     }
 }
 
@@ -80,11 +82,11 @@
 }
 
 @media screen {
-    @media (max-width: 768px) {
+    @media (max-width: $breakpoint-tablet) {
         .skills-container {
             display: block;
-            padding-left: 5%;
-            padding-right: 5%;
+            padding-left: $container-padding-mobile;
+            padding-right: $container-padding-mobile;
         }
     
         .skills-container .skills-grid {
@@ -96,7 +98,7 @@
         }
     }
 
-    @media (max-width: 567px) {
+    @media (max-width: $breakpoint-mobile) {
         .skills {
             font-size: 12px;
         }

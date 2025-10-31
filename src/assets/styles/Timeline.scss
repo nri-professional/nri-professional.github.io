@@ -1,72 +1,74 @@
+@import './variables';
+
 .vertical-timeline span {
-    color: var(--dark-mode-text);
-    font-family: 'Courier Prime', monospace;
+    color: theme-color($theme-dark, text);
+    font-family: $font-family-code;
 }
 
 .vertical-timeline p {
-    color: rgb(39, 40, 34);
-    transition: color 0.3s ease;
+    color: $color-neutral-dark;
+    transition: color $transition-normal;
 }
 
 .vertical-timeline-element p {
-    color: rgb(39, 40, 34);
-    transition: color 0.3s ease;
+    color: $color-neutral-dark;
+    transition: color $transition-normal;
 }
 
 .vertical-timeline-element h3 {
-    color: rgb(39, 40, 34);
-    transition: color 0.3s ease;
+    color: $color-neutral-dark;
+    transition: color $transition-normal;
 }
 
 .vertical-timeline-element h4 {
-    color: rgb(39, 40, 34);
-    transition: color 0.3s ease;
+    color: $color-neutral-dark;
+    transition: color $transition-normal;
 }
 
 .vertical-timeline-element span {
-    color: rgb(39, 40, 34);
-    transition: color 0.3s ease;
+    color: $color-neutral-dark;
+    transition: color $transition-normal;
 }
 
 .dark-mode {
     .vertical-timeline-element p {
-        color: var(--dark-mode-text);
-        transition: color 0.3s ease;
+        color: theme-color($theme-dark, text);
+        transition: color $transition-normal;
     }
 
     .vertical-timeline-element h3 {
-        color: var(--dark-mode-text);
-        transition: color 0.3s ease;
+        color: theme-color($theme-dark, text);
+        transition: color $transition-normal;
     }
 
     .vertical-timeline-element h4 {
-        color: var(--dark-mode-text);
-        transition: color 0.3s ease;
+        color: theme-color($theme-dark, text);
+        transition: color $transition-normal;
     }
 
     .vertical-timeline-element span {
-        color: var(--dark-mode-text);
-        transition: color 0.3s ease;
+        color: theme-color($theme-dark, text);
+        transition: color $transition-normal;
     }
 
     .vertical-timeline-element li {
-        color: var(--dark-mode-text);
-        transition: color 0.3s ease;
+        color: theme-color($theme-dark, text);
+        transition: color $transition-normal;
     }
 }
 
 .vertical-timeline-element .vertical-timeline-element-date {
-    color: var(--dark-mode-text);
-    transition: color 0.3s ease;
+    color: theme-color($theme-dark, text);
+    transition: color $transition-normal;
 }
 
 .svg-inline--fa {
-    color: var(--dark-mode-text);
-    transition: color 0.3s ease;
+    color: theme-color($theme-dark, text);
+    transition: color $transition-normal;
 }
 
-@media screen and (max-width: 1170px) {
+@media screen and (max-width: $breakpoint-desktop) {
     .vertical-timeline-element .vertical-timeline-element-date {
-        color: rgb(39, 40, 34);
+        color: $color-neutral-dark;
     }
 }

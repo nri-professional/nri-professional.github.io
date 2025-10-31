@@ -1,33 +1,34 @@
+// Import variables first
+@import './assets/styles/variables';
+
 :root {
-  --icon-bg-color: #df3636;
-  --icon-bg-color-gradient: #e36060;
-  /* RGB values for rgba() - update these when you change --icon-bg-color */
-  --icon-bg-color-r: 223;
-  --icon-bg-color-g: 54;
-  --icon-bg-color-b: 54;
-  /* Dark mode text color - softer than pure white */
-  --dark-mode-text: #e4e4e4;
+  // Generate CSS custom properties from SASS variables
+  // This allows both SASS and CSS variable usage
+  --icon-bg-color: #{$theme-accent};
+  --icon-bg-color-gradient: #{$theme-accent-gradient};
+  --icon-bg-color-r: #{$theme-accent-r};
+  --icon-bg-color-g: #{$theme-accent-g};
+  --icon-bg-color-b: #{$theme-accent-b};
+  --dark-mode-text: #{$color-text-light};
 }
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: $font-family-system;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-size: 1.1rem !important;
+  font-size: $font-size-base !important;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace !important;
-  font-size: 1rem !important;
+  font-family: $font-family-monospace !important;
+  font-size: $font-size-code !important;
 }
 
 .main-container {
   position: relative;
-  background-color: #0d1116;
-  transition: background-color 0.3s ease;
+  background-color: $color-dark-bg;
+  transition: background-color $transition-normal;
 }
 
 a {
@@ -35,14 +36,14 @@ a {
 }
 
 a:hover {
-  color: var(--icon-bg-color);
-  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
+  color: $theme-accent;
+  transition: color $transition-fast, background-color $transition-fast, border-color $transition-fast;
 }
 
 p, a, h1, h2, h3, h4, h5, label, button {
   color: white;
-  font-family: "Lato", sans-serif;
-  transition: color 0.3s ease;
+  font-family: $font-family-primary;
+  transition: color $transition-normal;
 }
 
 .dark-mode {
@@ -53,25 +54,25 @@ p, a, h1, h2, h3, h4, h5, label, button {
 
 .navigation-bar {
   justify-content: space-between;
-  background-color: #0d1116;
-  transition: background-color 0.3s ease;
+  background-color: $color-dark-bg;
+  transition: background-color $transition-normal;
 
   button {
-    font-size: 1.1rem;
-    font-family: "Lato", sans-serif;
+    font-size: $font-size-base;
+    font-family: $font-family-primary;
     text-transform: initial;
-    padding: 6px 10px;
+    padding: 6px $spacing-sm;
   }
 
   svg {
     cursor: pointer;
-    transition: color 0.3s ease;
+    transition: color $transition-normal;
   }
 }
 
 .navigation-bar-responsive {
   span, p {
-    font-family: "Lato", sans-serif;
+    font-family: $font-family-primary;
   }
 }
 
@@ -84,12 +85,12 @@ p, a, h1, h2, h3, h4, h5, label, button {
 
 .light-mode .navigation-bar-responsive {
   span, p {
-    color: #0d1116;
+    color: $color-text-dark;
   }
 }
 
 .container {
-  margin-top: 64px;
+  margin-top: $navbar-height;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -99,11 +100,11 @@ p, a, h1, h2, h3, h4, h5, label, button {
 
 .header-image {
   width: 100%;
-  height: 450px;
+  height: $header-height;
 
   img {
     width: 100%;
-    height: 450px;
+    height: $header-height;
     object-fit: cover;
   }
 }
@@ -112,12 +113,12 @@ p, a, h1, h2, h3, h4, h5, label, button {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 5px;
+  gap: $spacing-xs;
   font-weight: bold;
 }
 
 .items-container {
-  padding: 5% 10%;
+  padding: $container-padding-mobile $container-padding-desktop;
   text-align: left;
   display: flex;
   flex-direction: column;
@@ -125,24 +126,24 @@ p, a, h1, h2, h3, h4, h5, label, button {
 }
 
 .light-mode {
-  background-color: #f8f9fa;
+  background-color: $color-light-bg;
 
   .navigation-bar {
-    background-color: #f8f9fa;
-    transition: background-color 0.3s ease;
+    background-color: $color-light-bg;
+    transition: background-color $transition-normal;
   }
 
   p, a, h1, h2, h3, h4, h5, label, button {
-    color: #0d1116;
+    color: $color-text-dark;
   }
 
   a:hover {
-    color: var(--icon-bg-color);
-    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
+    color: $theme-accent;
+    transition: color $transition-fast, background-color $transition-fast, border-color $transition-fast;
   }
 
   .navigation-bar svg {
-    color: #0d1116;
+    color: $color-text-dark;
   }
 
   .about-section {
@@ -150,32 +151,32 @@ p, a, h1, h2, h3, h4, h5, label, button {
   }
 
   .skills-container svg {
-    color: #0d1116;
-    transition: color 0.3s ease;
+    color: $color-text-dark;
+    transition: color $transition-normal;
   }
 
   .chip {
-    background-color: rgba(0, 0, 0, 0.08);
-    box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
-    transition: background-color 0.3s ease, color 0.3s ease;
+    background-color: theme-color($theme-light, divider);
+    box-shadow: $shadow-sm;
+    transition: background-color $transition-normal, color $transition-normal;
   }
 
   .chip span {
-    color: rgb(39, 40, 34);
+    color: $color-neutral-dark;
   }
 
   .vertical-timeline::before {
-    background-color: rgba(0, 0, 0, 0.08);
-    transition: background-color 0.3s ease;
+    background-color: theme-color($theme-light, timeline-line);
+    transition: background-color $transition-normal;
   }
 
   .vertical-timeline-element-content-arrow {
-    border-right: 7px solid rgba(0, 0, 0, 0.08) !important;
-    transition: border-color 0.3s ease;
+    border-right: 7px solid theme-color($theme-light, divider) !important;
+    transition: border-color $transition-normal;
   }
 
   .vertical-timeline--animate .vertical-timeline-element-content.bounce-in {
-    box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+    box-shadow: $shadow-sm;
   }
 
   .vertical-timeline--two-columns .vertical-timeline-element-content .vertical-timeline-element-date {
@@ -183,41 +184,46 @@ p, a, h1, h2, h3, h4, h5, label, button {
   }
 
   .flex-chips .chip-title {
-    color: #0d1116;
+    color: $color-text-dark;
   }
 }
 
 .dark-mode {
   .vertical-timeline::before {
-    background-color: rgba(228, 228, 228, 0.15);
-    transition: background-color 0.3s ease;
+    background-color: theme-color($theme-dark, timeline-line);
+    transition: background-color $transition-normal;
   }
 
   .vertical-timeline-element-content-arrow {
-    border-right: 7px solid rgba(228, 228, 228, 0.1) !important;
-    transition: border-color 0.3s ease;
+    border-right: 7px solid theme-color($theme-dark, arrow) !important;
+    transition: border-color $transition-normal;
   }
 
   .vertical-timeline-element-icon {
-    box-shadow: 0 0 0 4px rgba(228, 228, 228, 0.15), 0 0 0 8px rgba(228, 228, 228, 0.08) !important;
-    transition: box-shadow 0.3s ease;
+    box-shadow: 0 0 0 4px theme-color($theme-dark, timeline-icon-shadow-1), 
+                0 0 0 8px theme-color($theme-dark, timeline-icon-shadow-2) !important;
+    transition: box-shadow $transition-normal;
   }
 
   .vertical-timeline-element-content {
-    box-shadow: 0px 3px 1px -2px rgba(var(--icon-bg-color-r), var(--icon-bg-color-g), var(--icon-bg-color-b), 0.2), 0px 2px 2px 0px rgba(var(--icon-bg-color-r), var(--icon-bg-color-g), var(--icon-bg-color-b), 0.14), 0px 1px 5px 0px rgba(var(--icon-bg-color-r), var(--icon-bg-color-g), var(--icon-bg-color-b), 0.12) !important;
-    transition: box-shadow 0.3s ease;
+    box-shadow: 0px 3px 1px -2px rgba($theme-accent-r, $theme-accent-g, $theme-accent-b, $shadow-opacity-medium),
+                0px 2px 2px 0px rgba($theme-accent-r, $theme-accent-g, $theme-accent-b, $shadow-opacity-light),
+                0px 1px 5px 0px rgba($theme-accent-r, $theme-accent-g, $theme-accent-b, $shadow-opacity-light) !important;
+    transition: box-shadow $transition-normal;
   }
 
   .vertical-timeline--animate .vertical-timeline-element-content.bounce-in {
-    box-shadow: 0px 3px 1px -2px rgba(var(--icon-bg-color-r), var(--icon-bg-color-g), var(--icon-bg-color-b), 0.2), 0px 2px 2px 0px rgba(var(--icon-bg-color-r), var(--icon-bg-color-g), var(--icon-bg-color-b), 0.14), 0px 1px 5px 0px rgba(var(--icon-bg-color-r), var(--icon-bg-color-g), var(--icon-bg-color-b), 0.12) !important;
-    transition: box-shadow 0.3s ease;
+    box-shadow: 0px 3px 1px -2px rgba($theme-accent-r, $theme-accent-g, $theme-accent-b, $shadow-opacity-medium),
+                0px 2px 2px 0px rgba($theme-accent-r, $theme-accent-g, $theme-accent-b, $shadow-opacity-light),
+                0px 1px 5px 0px rgba($theme-accent-r, $theme-accent-g, $theme-accent-b, $shadow-opacity-light) !important;
+    transition: box-shadow $transition-normal;
   }
 }
 
 @media screen {
-  @media (max-width: 768px) {
+  @media (max-width: $breakpoint-tablet) {
     .items-container {
-      padding: 5% 5%;
+      padding: $container-padding-mobile $container-padding-mobile;
     }
   }
 }

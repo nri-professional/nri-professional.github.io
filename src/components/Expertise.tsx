@@ -1,14 +1,46 @@
+// React
 import React from "react";
-import '@fortawesome/free-regular-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faReact } from '@fortawesome/free-brands-svg-icons';
-import { faRobot, faLayerGroup } from '@fortawesome/free-solid-svg-icons';
+
+// FontAwesome
+import '@fortawesome/free-regular-svg-icons';
+
+// Components
 import SkillCard from './cards/SkillCard';
+
+// Utils
+import { ICONS } from '../utils/icons';
+
+// Styles
 import '../assets/styles/Expertise.scss';
 
+/**
+ * EXPERTISE DATA
+ * 
+ * To add/edit skill categories, simply modify this array.
+ * 
+ * Fields:
+ *   - icon (required): Use ICONS from '../utils/icons' (see icons.ts for available options)
+ *   - title (required): Category title
+ *   - description (required): Description of your expertise in this area
+ *   - techStack (required): Array of technologies/skills
+ * 
+ * Available Icons (from ICONS):
+ *   - react, robot, layerGroup, database, server, network, mobile
+ *   - code, laptopCode, briefcase
+ *   - nodejs, python, javascript, html, css, docker, git, android
+ *   - chart, lightbulb, rocket, cog
+ * 
+ * Example:
+ *   {
+ *     icon: ICONS.react,
+ *     title: "Web Development",
+ *     description: "I build amazing websites...",
+ *     techStack: ["React", "TypeScript", "Node.js"]
+ *   }
+ */
 const skillsData = [
     {
-        icon: faReact,
+        icon: ICONS.react,
         title: "Full Stack Web Development",
         description: "I've built many full-stack web applications using modern technologies like React, TypeScript, and Flask. I'm comfortable using or not using AI depending on team preference.",
         techStack: [
@@ -32,7 +64,7 @@ const skillsData = [
         ]
     },
     {
-        icon: faRobot,
+        icon: ICONS.robot,
         title: "Machine Learning & Data",
         description: "I've designed and trained machine learning models using TensorFlow for weather prediction and patient diagnosis. I'm comfortable working with AI tools and can adapt to different development workflows.",
         techStack: [
@@ -50,7 +82,7 @@ const skillsData = [
         ]
     },
     {
-        icon: faLayerGroup,
+        icon: ICONS.layerGroup,
         title: "Flexibility & Diversity",
         description: "I've worked with high-level, low-level, and multi-paradigm development. I'm familiar with Von Neumann and ARM architecture design, and enjoy working with new technologies.",
         techStack: [

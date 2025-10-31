@@ -1,4 +1,7 @@
-import React, {useState, useEffect} from "react";
+// React
+import React, { useState, useEffect } from "react";
+
+// Components
 import {
   Main,
   Timeline,
@@ -9,14 +12,19 @@ import {
   Footer,
 } from "./components";
 import FadeIn from './components/FadeIn';
+
+// Styles
 import './index.scss';
+
+// Types
+import type { ThemeMode } from './types';
 
 function App() {
     // Initialize mode based on system preference
-    const getInitialMode = (): string => {
+    const getInitialMode = (): ThemeMode => {
         // Check if user has a saved preference
         const savedMode = localStorage.getItem('theme-mode');
-        if (savedMode) {
+        if (savedMode === 'dark' || savedMode === 'light') {
             return savedMode;
         }
         
@@ -27,7 +35,7 @@ function App() {
         return 'light';
     };
 
-    const [mode, setMode] = useState<string>(getInitialMode);
+    const [mode, setMode] = useState<ThemeMode>(getInitialMode);
 
     const handleModeChange = () => {
         const newMode = mode === 'dark' ? 'light' : 'dark';

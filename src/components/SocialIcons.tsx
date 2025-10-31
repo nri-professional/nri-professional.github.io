@@ -1,37 +1,47 @@
+// React
 import React from "react";
-import GitHubIcon from '@mui/icons-material/GitHub';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import EmailIcon from '@mui/icons-material/Email';
+
+// FontAwesome
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+// Utils
+import { ICONS } from '../utils/icons';
+
+// Types
+import type { SocialIconsProps } from '../types';
 
 interface SocialLink {
   name: string;
   url: string;
-  icon: React.ReactElement;
+  icon: typeof ICONS.github | typeof ICONS.linkedin | typeof ICONS.email;
 }
 
 const socialLinks: SocialLink[] = [
   {
     name: "GitHub",
     url: "https://github.com/nri-professional/",
-    icon: <GitHubIcon />
+    icon: ICONS.github
   },
   {
     name: "LinkedIn",
     url: "https://www.linkedin.com/in/nicholasricketts/",
-    icon: <LinkedInIcon />
+    icon: ICONS.linkedin
   },
   {
     name: "Email",
     url: "mailto:nicholasricketts59@gmail.com?cc=nri@vt.edu&subject=Hey%20Nicholas!",
-    icon: <EmailIcon />
+    icon: ICONS.email
   }
 ];
 
-interface SocialIconsProps {
-  className?: string;
-  emailUrl?: string; // Optional override for email URL (for Footer which doesn't need cc/subject)
-}
-
+/**
+ * Social Icons Component
+ * 
+ * Displays social media links (GitHub, LinkedIn, Email) with consistent styling.
+ * 
+ * @param className - Optional CSS class for styling
+ * @param emailUrl - Optional email URL override (used in Footer without cc/subject)
+ */
 function SocialIcons({ className, emailUrl }: SocialIconsProps) {
   const links = socialLinks.map(link => {
     // Use custom emailUrl if provided (for Footer), otherwise use default
@@ -49,8 +59,9 @@ function SocialIcons({ className, emailUrl }: SocialIconsProps) {
           href={link.url}
           target="_blank"
           rel="noreferrer"
+          aria-label={`Visit ${link.name} profile`}
         >
-          {link.icon}
+          <FontAwesomeIcon icon={link.icon} />
         </a>
       ))}
     </div>

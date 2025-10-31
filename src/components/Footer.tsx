@@ -1,6 +1,11 @@
+// React
 import React from "react";
+
+// Components
 import SocialIcons from './SocialIcons';
-import '../assets/styles/Footer.scss'
+
+// Styles
+import '../assets/styles/Footer.scss';
 
 function Footer() {
   return (

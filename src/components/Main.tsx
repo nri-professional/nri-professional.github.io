@@ -1,5 +1,10 @@
+// React
 import React from "react";
+
+// Components
 import SocialIcons from './SocialIcons';
+
+// Styles
 import '../assets/styles/Main.scss';
 
 function Main() {

@@ -1,47 +1,28 @@
-import React, { useState, useEffect } from "react";
+// React
+import React, { useState } from "react";
+
+// Material-UI Components
+import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
-import DialogTitle from '@mui/material/DialogTitle';
+import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
-import DialogActions from '@mui/material/DialogActions';
-import Button from '@mui/material/Button';
+import DialogTitle from '@mui/material/DialogTitle';
 import { Box } from '@mui/material';
 
-interface ProjectCardProps {
-  title: string;
-  description: string;
-  image: string;
-  link?: string;
-  imageAlt?: string;
-}
+// Hooks
+import { useThemeDetection } from '../../hooks/useThemeDetection';
+
+// Utils
+import { getThemeColors, COLORS, TYPOGRAPHY } from '../../utils/themeUtils';
+
+// Types
+import type { ProjectCardProps } from '../../types';
 
 function ProjectCard({ title, description, image, link, imageAlt }: ProjectCardProps) {
   const [open, setOpen] = useState(false);
-  const [isDarkMode, setIsDarkMode] = useState(true);
-
-  useEffect(() => {
-    // Detect current theme mode
-    const checkTheme = () => {
-      const mainContainer = document.querySelector('.main-container');
-      if (mainContainer) {
-        setIsDarkMode(mainContainer.classList.contains('dark-mode'));
-      }
-    };
-
-    checkTheme();
-    
-    // Watch for theme changes
-    const observer = new MutationObserver(checkTheme);
-    const mainContainer = document.querySelector('.main-container');
-    if (mainContainer) {
-      observer.observe(mainContainer, {
-        attributes: true,
-        attributeFilter: ['class']
-      });
-    }
-
-    return () => observer.disconnect();
-  }, []);
+  const isDarkMode = useThemeDetection();
+  const themeColors = getThemeColors(isDarkMode);
 
   const handleClick = (e: React.MouseEvent) => {
     if (link) {
@@ -60,7 +41,7 @@ function ProjectCard({ title, description, image, link, imageAlt }: ProjectCardP
     <div 
       className="project" 
       onClick={handleClick} 
-      style={{ cursor: link ? 'pointer' : 'pointer' }}
+      style={{ cursor: 'pointer' }}
     >
       {link ? (
         <>
@@ -91,17 +72,17 @@ function ProjectCard({ title, description, image, link, imageAlt }: ProjectCardP
         aria-describedby="project-dialog-description"
         sx={{
           '& .MuiDialog-paper': {
-            backgroundColor: isDarkMode ? '#0d1116' : '#f8f9fa',
-            color: isDarkMode ? 'var(--dark-mode-text)' : '#0d1116',
-            fontFamily: '"Lato", sans-serif',
+            backgroundColor: themeColors.background,
+            color: themeColors.text,
+            fontFamily: TYPOGRAPHY.fontFamily,
           },
         }}
       >
         <DialogTitle 
           id="project-dialog-title"
           sx={{
-            color: isDarkMode ? 'var(--dark-mode-text)' : '#0d1116',
-            fontFamily: '"Lato", sans-serif',
+            color: themeColors.text,
+            fontFamily: TYPOGRAPHY.fontFamily,
             fontWeight: 'bold',
             fontSize: '1.5rem',
             paddingBottom: '8px',
@@ -113,8 +94,8 @@ function ProjectCard({ title, description, image, link, imageAlt }: ProjectCardP
           <DialogContentText 
             id="project-dialog-description"
             sx={{
-              color: isDarkMode ? 'rgba(228, 228, 228, 0.9)' : 'rgba(13, 17, 22, 0.9)',
-              fontFamily: '"Lato", sans-serif',
+              color: themeColors.textSoft,
+              fontFamily: TYPOGRAPHY.fontFamily,
               fontSize: '1rem',
               lineHeight: '1.6',
               marginBottom: '16px',
@@ -127,15 +108,15 @@ function ProjectCard({ title, description, image, link, imageAlt }: ProjectCardP
             sx={{
               marginTop: '16px',
               padding: '12px',
-              backgroundColor: isDarkMode ? 'rgba(223, 54, 54, 0.1)' : 'rgba(223, 54, 54, 0.05)',
+              backgroundColor: isDarkMode ? COLORS.theme.accentHover : COLORS.theme.accentHoverLight,
               borderRadius: '4px',
-              borderLeft: `3px solid var(--icon-bg-color)`,
+              borderLeft: `3px solid ${COLORS.theme.accent}`,
             }}
           >
             <DialogContentText
               sx={{
-                color: isDarkMode ? 'rgba(228, 228, 228, 0.95)' : 'rgba(13, 17, 22, 0.95)',
-                fontFamily: '"Lato", sans-serif',
+                color: themeColors.textSofter,
+                fontFamily: TYPOGRAPHY.fontFamily,
                 fontSize: '0.95rem',
                 lineHeight: '1.6',
                 fontStyle: 'italic',
@@ -152,12 +133,12 @@ function ProjectCard({ title, description, image, link, imageAlt }: ProjectCardP
             onClick={handleClose} 
             autoFocus
             sx={{
-              color: 'var(--icon-bg-color)',
-              fontFamily: '"Lato", sans-serif',
+              color: COLORS.theme.accent,
+              fontFamily: TYPOGRAPHY.fontFamily,
               textTransform: 'none',
               fontWeight: 500,
               '&:hover': {
-                backgroundColor: isDarkMode ? 'rgba(223, 54, 54, 0.1)' : 'rgba(223, 54, 54, 0.05)',
+                backgroundColor: isDarkMode ? COLORS.theme.accentHover : COLORS.theme.accentHoverLight,
               },
             }}
           >

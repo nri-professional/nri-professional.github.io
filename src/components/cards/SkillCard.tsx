@@ -1,14 +1,14 @@
+// React
 import React from "react";
+
+// FontAwesome
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+
+// Material-UI
 import Chip from '@mui/material/Chip';
 
-interface SkillCardProps {
-  icon: IconDefinition;
-  title: string;
-  description: string;
-  techStack: string[];
-}
+// Types
+import type { SkillCardProps } from '../../types';
 
 function SkillCard({ icon, title, description, techStack }: SkillCardProps) {
   return (

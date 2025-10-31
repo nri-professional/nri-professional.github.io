@@ -1,14 +1,16 @@
+@import './variables';
+
 .projects-container {
     display: flex;
     flex-direction: column;
-    padding: 5% 10%;
+    padding: $container-padding-mobile $container-padding-desktop;
     text-align: left;
 }
   
 .projects-container .projects-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-gap: 50px;
+    grid-gap: $spacing-xxl;
 }
   
 .projects-container .projects-grid .project {
@@ -21,8 +23,8 @@
 }
   
 .zoom {
-    border-radius: 5px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    border-radius: $border-radius-sm;
+    transition: transform $transition-normal, box-shadow $transition-normal, background-color $transition-normal;
     margin: 0 auto;
     display: block;
     max-width: 100%;
@@ -30,27 +32,27 @@
     max-height: 400px;
     width: 100%;
     object-fit: contain;
-    background-color: rgba(255, 255, 255, 0.05);
-    padding: 20px;
+    background-color: theme-color($theme-dark, card-bg);
+    padding: $spacing-md;
     border: 1px solid transparent;
 }
 
 .zoom:hover {
     transform: scale(1.05);
-    box-shadow: 0 10px 30px rgba(var(--icon-bg-color-r), var(--icon-bg-color-g), var(--icon-bg-color-b), 0.2);
-    border-color: rgba(var(--icon-bg-color-r), var(--icon-bg-color-g), var(--icon-bg-color-b), 0.3);
+    box-shadow: $shadow-lg rgba($theme-accent-r, $theme-accent-g, $theme-accent-b, $shadow-opacity-medium);
+    border-color: rgba($theme-accent-r, $theme-accent-g, $theme-accent-b, $shadow-opacity-heavy);
 }
 
 .light-mode .zoom {
-    background-color: rgba(13, 17, 22, 0.05);
+    background-color: theme-color($theme-light, card-bg);
 }
 
 @media screen {
-    @media (max-width: 1170px) {
+    @media (max-width: $breakpoint-desktop) {
         .projects-container {
             display: block;
-            padding-left: 5%;
-            padding-right: 5%;
+            padding-left: $container-padding-mobile;
+            padding-right: $container-padding-mobile;
         }
   
         .projects-container .projects-grid {
