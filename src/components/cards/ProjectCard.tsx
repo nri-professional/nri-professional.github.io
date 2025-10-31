@@ -92,7 +92,7 @@ function ProjectCard({ title, description, image, link, imageAlt }: ProjectCardP
         sx={{
           '& .MuiDialog-paper': {
             backgroundColor: isDarkMode ? '#0d1116' : '#f8f9fa',
-            color: isDarkMode ? '#ffffff' : '#0d1116',
+            color: isDarkMode ? 'var(--dark-mode-text)' : '#0d1116',
             fontFamily: '"Lato", sans-serif',
           },
         }}
@@ -100,7 +100,7 @@ function ProjectCard({ title, description, image, link, imageAlt }: ProjectCardP
         <DialogTitle 
           id="project-dialog-title"
           sx={{
-            color: isDarkMode ? '#ffffff' : '#0d1116',
+            color: isDarkMode ? 'var(--dark-mode-text)' : '#0d1116',
             fontFamily: '"Lato", sans-serif',
             fontWeight: 'bold',
             fontSize: '1.5rem',
@@ -113,7 +113,7 @@ function ProjectCard({ title, description, image, link, imageAlt }: ProjectCardP
           <DialogContentText 
             id="project-dialog-description"
             sx={{
-              color: isDarkMode ? 'rgba(255, 255, 255, 0.9)' : 'rgba(13, 17, 22, 0.9)',
+              color: isDarkMode ? 'rgba(228, 228, 228, 0.9)' : 'rgba(13, 17, 22, 0.9)',
               fontFamily: '"Lato", sans-serif',
               fontSize: '1rem',
               lineHeight: '1.6',
@@ -134,7 +134,7 @@ function ProjectCard({ title, description, image, link, imageAlt }: ProjectCardP
           >
             <DialogContentText
               sx={{
-                color: isDarkMode ? 'rgba(255, 255, 255, 0.95)' : 'rgba(13, 17, 22, 0.95)',
+                color: isDarkMode ? 'rgba(228, 228, 228, 0.95)' : 'rgba(13, 17, 22, 0.95)',
                 fontFamily: '"Lato", sans-serif',
                 fontSize: '0.95rem',
                 lineHeight: '1.6',

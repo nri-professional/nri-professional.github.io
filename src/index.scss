@@ -5,6 +5,8 @@
   --icon-bg-color-r: 223;
   --icon-bg-color-g: 54;
   --icon-bg-color-b: 54;
+  /* Dark mode text color - softer than pure white */
+  --dark-mode-text: #e4e4e4;
 }
 
 body {
@@ -25,7 +27,7 @@ code {
 .main-container {
   position: relative;
   background-color: #0d1116;
-
+  transition: background-color 0.3s ease;
 }
 
 a {
@@ -40,11 +42,19 @@ a:hover {
 p, a, h1, h2, h3, h4, h5, label, button {
   color: white;
   font-family: "Lato", sans-serif;
+  transition: color 0.3s ease;
+}
+
+.dark-mode {
+  p, a, h1, h2, h3, h4, h5, label, button {
+    color: var(--dark-mode-text);
+  }
 }
 
 .navigation-bar {
   justify-content: space-between;
   background-color: #0d1116;
+  transition: background-color 0.3s ease;
 
   button {
     font-size: 1.1rem;
@@ -55,13 +65,26 @@ p, a, h1, h2, h3, h4, h5, label, button {
 
   svg {
     cursor: pointer;
+    transition: color 0.3s ease;
   }
 }
 
 .navigation-bar-responsive {
   span, p {
-    color: #0d1116;
     font-family: "Lato", sans-serif;
+  }
+}
+
+/* Remove color override - handled by component styling */
+.dark-mode .navigation-bar-responsive {
+  span, p {
+    color: var(--dark-mode-text);
+  }
+}
+
+.light-mode .navigation-bar-responsive {
+  span, p {
+    color: #0d1116;
   }
 }
 
@@ -106,6 +129,7 @@ p, a, h1, h2, h3, h4, h5, label, button {
 
   .navigation-bar {
     background-color: #f8f9fa;
+    transition: background-color 0.3s ease;
   }
 
   p, a, h1, h2, h3, h4, h5, label, button {
@@ -127,15 +151,27 @@ p, a, h1, h2, h3, h4, h5, label, button {
 
   .skills-container svg {
     color: #0d1116;
+    transition: color 0.3s ease;
   }
 
   .chip {
     background-color: rgba(0, 0, 0, 0.08);
     box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  .chip span {
+    color: rgb(39, 40, 34);
   }
 
   .vertical-timeline::before {
     background-color: rgba(0, 0, 0, 0.08);
+    transition: background-color 0.3s ease;
+  }
+
+  .vertical-timeline-element-content-arrow {
+    border-right: 7px solid rgba(0, 0, 0, 0.08) !important;
+    transition: border-color 0.3s ease;
   }
 
   .vertical-timeline--animate .vertical-timeline-element-content.bounce-in {
@@ -146,12 +182,35 @@ p, a, h1, h2, h3, h4, h5, label, button {
     color: gray;
   }
 
-  .vertical-timeline-element-content-arrow {
-    border-right: 7px solid rgba(0, 0, 0, 0.08) !important;
-  }
-
   .flex-chips .chip-title {
     color: #0d1116;
+  }
+}
+
+.dark-mode {
+  .vertical-timeline::before {
+    background-color: rgba(228, 228, 228, 0.15);
+    transition: background-color 0.3s ease;
+  }
+
+  .vertical-timeline-element-content-arrow {
+    border-right: 7px solid rgba(228, 228, 228, 0.1) !important;
+    transition: border-color 0.3s ease;
+  }
+
+  .vertical-timeline-element-icon {
+    box-shadow: 0 0 0 4px rgba(228, 228, 228, 0.15), 0 0 0 8px rgba(228, 228, 228, 0.08) !important;
+    transition: box-shadow 0.3s ease;
+  }
+
+  .vertical-timeline-element-content {
+    box-shadow: 0px 3px 1px -2px rgba(var(--icon-bg-color-r), var(--icon-bg-color-g), var(--icon-bg-color-b), 0.2), 0px 2px 2px 0px rgba(var(--icon-bg-color-r), var(--icon-bg-color-g), var(--icon-bg-color-b), 0.14), 0px 1px 5px 0px rgba(var(--icon-bg-color-r), var(--icon-bg-color-g), var(--icon-bg-color-b), 0.12) !important;
+    transition: box-shadow 0.3s ease;
+  }
+
+  .vertical-timeline--animate .vertical-timeline-element-content.bounce-in {
+    box-shadow: 0px 3px 1px -2px rgba(var(--icon-bg-color-r), var(--icon-bg-color-g), var(--icon-bg-color-b), 0.2), 0px 2px 2px 0px rgba(var(--icon-bg-color-r), var(--icon-bg-color-g), var(--icon-bg-color-b), 0.14), 0px 1px 5px 0px rgba(var(--icon-bg-color-r), var(--icon-bg-color-g), var(--icon-bg-color-b), 0.12) !important;
+    transition: box-shadow 0.3s ease;
   }
 }
 

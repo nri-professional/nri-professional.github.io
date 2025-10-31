@@ -19,7 +19,7 @@ const projectsData = [
 function Project() {
     return(
     <div className="projects-container" id="projects">
-        <h1>Projects & Experience</h1>
+        <h1>Projects</h1>
         <div className="projects-grid">
             {projectsData.map((project, index) => (
                 <ProjectCard

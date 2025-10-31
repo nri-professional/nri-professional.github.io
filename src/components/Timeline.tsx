@@ -49,7 +49,7 @@ function Timeline() {
   return (
     <div id="history">
       <div className="items-container">
-        <h1>Experience & Projects</h1>
+        <h1>Experience</h1>
         <VerticalTimeline>
           {timelineData.map((item, index) => (
             <TimelineItem

@@ -5,7 +5,8 @@
     text-align: left;
 
     svg {
-        color: white;
+        color: var(--dark-mode-text);
+        transition: color 0.3s ease;
     }
 
     .skill svg {
@@ -30,14 +31,27 @@
     background-color: white !important;
     font-size: 0.8rem !important;
     height: 25px !important;
+    transition: background-color 0.3s ease, color 0.3s ease !important;
   
     span {
         font-family: 'Courier Prime', monospace;
         color: rgb(39, 40, 34);
+        transition: color 0.3s ease;
     }
   
     svg {
         height: 15px !important;
+    }
+}
+
+.dark-mode {
+    .chip {
+        background-color: rgba(228, 228, 228, 0.15) !important;
+        color: var(--dark-mode-text) !important;
+
+        span {
+            color: var(--dark-mode-text) !important;
+        }
     }
 }
 
@@ -46,7 +60,7 @@
     margin: 0.5;
 
     .chip-title {
-        color: white;
+        color: var(--dark-mode-text);
         padding-right: 10px;
     }
 }
