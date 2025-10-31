@@ -63,6 +63,13 @@
     padding-bottom: 30%;
 }
 
+/* Fix for mobile devices that don't support background-attachment: fixed */
+@media (max-width: 768px) {
+    .about-section {
+        background-attachment: scroll !important;
+    }
+}
+
 @media screen {
     @media (max-width: 567px) {
         .nav-left{
