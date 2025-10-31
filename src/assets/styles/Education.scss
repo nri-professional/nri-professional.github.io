@@ -1,0 +1,191 @@
+.education-container {
+    padding: 5% 10%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    align-items: flex-start;
+
+    svg {
+        color: white;
+    }
+}
+
+.education-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 30px;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.education-card {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 40px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(var(--icon-bg-color-r), var(--icon-bg-color-g), var(--icon-bg-color-b), 0.2);
+        border-color: rgba(var(--icon-bg-color-r), var(--icon-bg-color-g), var(--icon-bg-color-b), 0.3);
+    }
+}
+
+.education-icon {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(135deg, var(--icon-bg-color) 0%, var(--icon-bg-color-gradient) 100%);
+    border-radius: 50%;
+    padding: 20px;
+
+    svg {
+        margin: 0;
+        vertical-align: middle;
+    }
+}
+
+.education-content {
+    flex: 1;
+
+    h2 {
+        font-size: 2em;
+        margin: 0 0 10px 0;
+        color: white;
+        font-family: "Lato", sans-serif;
+    }
+
+    h3 {
+        font-size: 1.5em;
+        margin: 0 0 15px 0;
+        color: rgba(255, 255, 255, 0.9);
+        font-family: "Lato", sans-serif;
+        font-weight: 400;
+    }
+
+    .education-period {
+        font-size: 1.1em;
+        color: rgba(255, 255, 255, 0.7);
+        margin: 0 0 20px 0;
+        font-family: 'Courier Prime', monospace;
+    }
+
+    .education-details {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .gpa {
+        display: flex;
+        align-items: baseline;
+        gap: 10px;
+
+        .gpa-label {
+            font-size: 1em;
+            color: rgba(255, 255, 255, 0.8);
+            font-family: "Lato", sans-serif;
+        }
+
+        .gpa-value {
+            font-size: 1em;
+            color: white;
+            font-weight: 400;
+            font-family: "Lato", sans-serif;
+        }
+    }
+}
+
+.light-mode {
+    .education-card {
+        background-color: rgba(13, 17, 22, 0.05);
+        border-color: rgba(13, 17, 22, 0.1);
+
+        &:hover {
+            box-shadow: 0 10px 30px rgba(var(--icon-bg-color-r), var(--icon-bg-color-g), var(--icon-bg-color-b), 0.15);
+            border-color: rgba(var(--icon-bg-color-r), var(--icon-bg-color-g), var(--icon-bg-color-b), 0.2);
+        }
+    }
+
+    .education-content {
+        h2 {
+            color: #0d1116;
+        }
+
+        h3 {
+            color: rgba(13, 17, 22, 0.9);
+        }
+
+        .education-period {
+            color: rgba(13, 17, 22, 0.7);
+        }
+
+        .gpa {
+            .gpa-label {
+                color: rgba(13, 17, 22, 0.8);
+            }
+
+            .gpa-value {
+                color: #0d1116;
+            }
+        }
+    }
+
+    .education-icon svg {
+        color: white;
+    }
+}
+
+@media screen {
+    @media (max-width: 1260px) {
+        .education-container {
+            padding: 5% 5%;
+        }
+
+        .education-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .education-card {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 30px 20px;
+            gap: 30px;
+        }
+
+        .education-content {
+            text-align: center;
+
+            h2 {
+                font-size: 1.8em;
+            }
+
+            h3 {
+                font-size: 1.3em;
+            }
+
+            .education-details {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .gpa {
+                justify-content: center;
+            }
+        }
+    }
+}
+

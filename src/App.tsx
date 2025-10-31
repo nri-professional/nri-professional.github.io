@@ -3,8 +3,8 @@ import {
   Main,
   Timeline,
   Expertise,
+  Education,
   Project,
-  Contact,
   Navigation,
   Footer,
 } from "./components";
@@ -32,9 +32,9 @@ function App() {
         <FadeIn transitionDuration={700}>
             <Main/>
             <Expertise/>
+            <Education/>
             <Timeline/>
             <Project/>
-            <Contact/>
         </FadeIn>
         <Footer />
     </div>
