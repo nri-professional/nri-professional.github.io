@@ -7,14 +7,12 @@ const projectsData = [
   {
     title: "Hokie Hotspot",
     description: "Designed a prototype button that, when pressed, would increment a counter that displayed the amount of sick people in the area. The concept was to place these around Virginia Tech's campus and sync them so that people could avoid areas with sick students.",
-    image: noPic,
-    link: "https://github.com/nri-professional"
+    image: noPic
   },
   {
     title: "QuickNosis",
     description: "Designed and trained a machine learning model for patient diagnosis using TensorFlow and publicly available datasets. Patients would use the mobile app, input their symptoms, and the machine learning model would output a diagnosis based on those symptoms.",
-    image: noPic,
-    link: "https://github.com/nri-professional"
+    image: noPic
   }
 ];
 
@@ -29,7 +27,6 @@ function Project() {
                     title={project.title}
                     description={project.description}
                     image={project.image}
-                    link={project.link}
                 />
             ))}
         </div>
