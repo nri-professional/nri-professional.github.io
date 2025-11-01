@@ -41,7 +41,12 @@ import {
   faChartLine,
   faLightbulb,
   faRocket,
-  faEnvelope
+  faEnvelope,
+  faGamepad,
+  faVideo,
+  faDollarSign,
+  faPalette,
+  faHeart
 } from '@fortawesome/free-solid-svg-icons';
 
 /**
@@ -90,7 +95,14 @@ export const ICONS = {
   cog: faCog,
   chart: faChartLine,
   lightbulb: faLightbulb,
-  rocket: faRocket
+  rocket: faRocket,
+  
+  // Interests & Hobbies
+  gamepad: faGamepad,
+  video: faVideo,
+  dollarSign: faDollarSign,
+  palette: faPalette,
+  heart: faHeart
 } as const;
 
 // Type helper for icon selection

@@ -26,9 +26,11 @@ export interface NavigationProps {
 export interface ProjectCardProps {
   title: string;
   description: string;
-  image: string;
+  image?: string; // Optional - not needed if videoUrl is provided (will use demo.png fallback)
   link?: string;
   imageAlt?: string;
+  videoUrl?: string; // YouTube embed URL (e.g., "https://www.youtube.com/embed/VIDEO_ID")
+  techStack?: string[]; // Technologies used in the project
 }
 
 /**

@@ -1,5 +1,6 @@
 // Import variables first
 @import './assets/styles/variables';
+@import './assets/styles/section-containers';
 
 :root {
   // Generate CSS custom properties from SASS variables
@@ -146,10 +147,6 @@ p, a, h1, h2, h3, h4, h5, label, button {
 }
 
 .items-container {
-  padding: $container-padding-mobile $container-padding-desktop;
-  text-align: left;
-  display: flex;
-  flex-direction: column;
   justify-content: center;
 }
 

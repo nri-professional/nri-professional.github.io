@@ -1,0 +1,99 @@
+@import './variables';
+
+.contact-container {
+    min-height: 400px;
+    background-color: theme-color($theme-dark, background);
+    color: theme-color($theme-dark, text);
+    transition: background-color $transition-normal, color $transition-normal;
+}
+
+.contact-content {
+    width: 100%;
+    max-width: none; // Remove max-width to allow full width like other sections
+    
+    .contact-description {
+        font-size: 1.2em;
+        line-height: 1.8;
+        margin-bottom: $spacing-xxl;
+        color: theme-color($theme-dark, text);
+        opacity: 0.9;
+        text-align: left;
+        
+        .contact-link {
+            display: inline;
+            color: var(--icon-bg-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color $transition-normal;
+            margin: 0 2px;
+            vertical-align: baseline;
+            
+            svg {
+                display: inline;
+                font-size: 0.95em;
+                margin-right: $spacing-xs;
+                vertical-align: middle;
+                color: theme-color($theme-dark, text);
+                transition: color $transition-normal, transform $transition-normal;
+            }
+            
+            &:hover {
+                color: rgba($theme-accent-r, $theme-accent-g, $theme-accent-b, 0.8);
+                
+                svg {
+                    color: rgba($theme-accent-r, $theme-accent-g, $theme-accent-b, 0.8);
+                    transform: scale(1.1);
+                }
+            }
+            
+            &:focus {
+                outline: 2px solid rgba($theme-accent-r, $theme-accent-g, $theme-accent-b, 0.6);
+                outline-offset: 2px;
+                border-radius: 2px;
+            }
+        }
+    }
+}
+
+
+// Light mode styles
+.light-mode {
+    .contact-container {
+        background-color: theme-color($theme-light, background);
+        color: theme-color($theme-light, text);
+    }
+    
+    .contact-content {
+        .contact-description {
+            color: theme-color($theme-light, text);
+            
+            .contact-link {
+                svg {
+                    color: theme-color($theme-light, text);
+                }
+                
+                &:hover {
+                    svg {
+                        color: rgba($theme-accent-r, $theme-accent-g, $theme-accent-b, 0.8);
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Mobile responsive
+@media screen and (max-width: $breakpoint-desktop) {
+    .contact-content {
+        .contact-description {
+            font-size: 1.1em;
+            line-height: 1.7;
+            
+            .contact-link {
+                display: inline;
+                margin: 0 1px;
+            }
+        }
+    }
+}
+

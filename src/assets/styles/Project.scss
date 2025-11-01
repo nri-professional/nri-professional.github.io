@@ -1,10 +1,6 @@
 @import './variables';
 
 .projects-container {
-    display: flex;
-    flex-direction: column;
-    padding: $container-padding-mobile $container-padding-desktop;
-    text-align: left;
 }
   
 .projects-container .projects-grid {
@@ -21,6 +17,14 @@
     text-decoration: underline;
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
 }
+
+.project-tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $spacing-4px;
+    margin-top: $spacing-xs;
+    padding-top: 0;
+}
   
 .zoom {
     border-radius: $border-radius-sm;
@@ -32,12 +36,12 @@
     display: block;
     max-width: 100%;
     height: auto;
-    max-height: 400px;
+    max-height: $max-height-image;
     width: 100%;
     object-fit: contain;
     background-color: theme-color($theme-dark, card-bg);
     padding: $spacing-md;
-    border: 1px solid transparent;
+    border: $border-width-sm solid transparent;
     cursor: pointer;
 }
 
@@ -48,20 +52,45 @@
 }
 
 .zoom:focus {
-    outline: 2px solid rgba($theme-accent-r, $theme-accent-g, $theme-accent-b, 0.8);
-    outline-offset: 4px;
+    outline: $border-width-md solid rgba($theme-accent-r, $theme-accent-g, $theme-accent-b, $text-opacity-low);
+    outline-offset: $spacing-4px;
 }
 
 .light-mode .zoom {
     background-color: theme-color($theme-light, card-bg);
 }
 
+// Video embedding styles (YouTube only)
+.video-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; // 16:9 aspect ratio (constant, not a variable)
+    height: 0;
+    overflow: hidden;
+    margin: $spacing-md 0;
+    border-radius: $border-radius-md;
+    background-color: rgba(0, 0, 0, $bg-opacity-light);
+    box-shadow: $shadow-md rgba(0, 0, 0, $bg-opacity-light);
+
+    .video-embed {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
+    }
+}
+
+.light-mode .video-container {
+    background-color: rgba(0, 0, 0, $bg-opacity-soft);
+    box-shadow: $shadow-md rgba(0, 0, 0, $bg-opacity-soft);
+}
+
 @media screen {
     @media (max-width: $breakpoint-desktop) {
         .projects-container {
             display: block;
-            padding-left: $container-padding-mobile;
-            padding-right: $container-padding-mobile;
         }
   
         .projects-container .projects-grid {
@@ -70,6 +99,11 @@
       
         .projects-container .projects-grid .project {
             padding-bottom: 5%;
+        }
+
+        // Responsive video on mobile
+        .video-container {
+            margin: $spacing-sm 0;
         }
     }
 }

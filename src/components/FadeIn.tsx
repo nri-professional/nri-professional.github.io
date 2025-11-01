@@ -8,12 +8,12 @@ import React, {
   interface Props {
     delay?: number;
     transitionDuration?: number;
-    wrapperTag?: JSXElementConstructor<any>;
-    childTag?: JSXElementConstructor<any>;
+    wrapperTag?: JSXElementConstructor<Record<string, unknown>>;
+    childTag?: JSXElementConstructor<Record<string, unknown>>;
     className?: string;
     childClassName?: string;
     visible?: boolean;
-    onComplete?: () => any;
+    onComplete?: () => void;
   }
   
   export default function FadeIn(props: PropsWithChildren<Props>) {

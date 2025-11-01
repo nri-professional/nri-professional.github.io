@@ -1,10 +1,6 @@
 @import './variables';
 
 .skills-container {
-    padding: $container-padding-mobile $container-padding-desktop;
-    display: flex;
-    flex-direction: column;
-    text-align: left;
 
     svg {
         color: theme-color($theme-dark, text);
@@ -12,8 +8,8 @@
     }
 
     .skill svg {
-        width: 1.5em !important;
-        height: 1.5em !important;
+        width: $icon-size-md !important;
+        height: $icon-size-md !important;
     }
 }
   
@@ -46,7 +42,7 @@
     color: $color-neutral-dark !important;
     background-color: white !important;
     font-size: $font-size-small !important;
-    height: 25px !important;
+    height: $spacing-xxl / 2 !important;
     transition: background-color $transition-normal, 
                 color $transition-normal,
                 transform $transition-fast !important;
@@ -92,21 +88,18 @@
 }
 
 .flex-chips .MuiChip-outlined {
-    background-color: #e0e0e0;
-    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-        monospace;
+    background-color: $color-light-gray;
+    font-family: $font-family-monospace;
 }
 
 .flex-chips .MuiChip-outlined span {
-    color: rgb(39, 40, 34);
+    color: $color-neutral-dark;
 }
 
 @media screen {
     @media (max-width: $breakpoint-tablet) {
         .skills-container {
             display: block;
-            padding-left: $container-padding-mobile;
-            padding-right: $container-padding-mobile;
         }
     
         .skills-container .skills-grid {
@@ -120,7 +113,7 @@
 
     @media (max-width: $breakpoint-mobile) {
         .skills {
-            font-size: 12px;
+            font-size: $font-size-xs;
         }
     }
 }

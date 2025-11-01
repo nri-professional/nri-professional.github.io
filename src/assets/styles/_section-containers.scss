@@ -1,0 +1,35 @@
+@import './variables';
+
+// ============================================
+// SHARED SECTION CONTAINER STYLES
+// ============================================
+// This file ensures all section containers have consistent padding and layout
+
+// Standard section container - apply to all main section containers
+%section-container {
+    padding: $container-padding-mobile $container-padding-desktop;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    width: 100%;
+    
+    h1 {
+        @include section-header;
+    }
+    
+    // Mobile responsive - consistent padding for all sections
+    @media screen and (max-width: $breakpoint-desktop) {
+        padding: $container-padding-mobile;
+    }
+}
+
+// Apply to all section containers to ensure consistent left alignment
+.skills-container,
+.education-container,
+.projects-container,
+.items-container,
+.interests-container,
+.contact-container {
+    @extend %section-container;
+}
+

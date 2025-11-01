@@ -24,16 +24,15 @@ import MenuIcon from '@mui/icons-material/Menu';
 // Utils
 import { getThemeColors, COLORS, TYPOGRAPHY } from '../utils/themeUtils';
 
+// Config
+import { getNavItems } from '../config/sections';
+
 // Types
 import type { NavigationProps } from '../types';
 
 const drawerWidth = 240;
-const navItems: [string, string][] = [
-  ['Expertise', 'expertise'],
-  ['Education', 'education'],
-  ['Experience', 'history'],
-  ['Projects', 'projects']
-];
+// Navigation items are automatically synced with section configuration
+const navItems: [string, string][] = getNavItems();
 
 function Navigation({ parentToChild, modeChange }: NavigationProps) {
   const { mode } = parentToChild;
@@ -220,7 +219,7 @@ function Navigation({ parentToChild, modeChange }: NavigationProps) {
           )}
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
             {navItems.map((item) => (
-              <Button key={item[0]} onClick={() => scrollToSection(item[1])} sx={{ color: '#fff' }}>
+              <Button key={item[0]} onClick={() => scrollToSection(item[1])} sx={{ color: themeColors.text }}>
                 {item[0]}
               </Button>
             ))}

@@ -4,20 +4,26 @@ import React, { useState, useEffect } from "react";
 // Components
 import {
   Main,
+  Interests,
   Timeline,
   Expertise,
   Education,
   Project,
+  Contact,
   Navigation,
   Footer,
 } from "./components";
 import FadeIn from './components/FadeIn';
+
+// Config
+import { sections } from './config/sections';
 
 // Styles
 import './index.scss';
 
 // Types
 import type { ThemeMode } from './types';
+import type { SectionComponent } from './config/sections';
 
 function App() {
     // Initialize mode based on system preference
@@ -67,15 +73,26 @@ function App() {
         }
     }, []);
 
+    // Component mapping - maps section component names to actual components
+    const componentMap: Record<SectionComponent, React.ComponentType> = {
+        Main,
+        Interests,
+        Education,
+        Expertise,
+        Timeline,
+        Project,
+        Contact,
+    };
+
     return (
     <div className={`main-container ${mode === 'dark' ? 'dark-mode' : 'light-mode'}`}>
         <Navigation parentToChild={{mode}} modeChange={handleModeChange}/>
         <FadeIn transitionDuration={700}>
             <Main/>
-            <Expertise/>
-            <Education/>
-            <Timeline/>
-            <Project/>
+            {sections.map((section) => {
+                const Component = componentMap[section.component];
+                return Component ? <Component key={section.id} /> : null;
+            })}
         </FadeIn>
         <Footer />
     </div>
