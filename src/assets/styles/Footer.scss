@@ -9,8 +9,16 @@ footer {
         width: 1.1em !important;
         height: 1.1em !important;
         margin-right: 10px;
-        color: theme-color($theme-dark, text);
-        transition: color $transition-normal;
+        color: var(--dark-mode-text);
+        transition: all $transition-fast;
+        
+        &:hover {
+            color: var(--icon-bg-color);
+            box-shadow: 0 0 10px rgba($theme-accent-r, $theme-accent-g, $theme-accent-b, 0.6),
+                        0 0 20px rgba($theme-accent-r, $theme-accent-g, $theme-accent-b, 0.4),
+                        0 0 30px rgba($theme-accent-r, $theme-accent-g, $theme-accent-b, 0.2);
+            transform: scale(1.15);
+        }
     }
 
     p {
@@ -21,6 +29,13 @@ footer {
 // Light mode styles for footer icons
 .light-mode footer {
     svg {
-        color: theme-color($theme-light, text);
+        color: $color-text-dark;
+        
+        &:hover {
+            color: var(--icon-bg-color);
+            box-shadow: 0 0 10px rgba($theme-accent-r, $theme-accent-g, $theme-accent-b, 0.6),
+                        0 0 20px rgba($theme-accent-r, $theme-accent-g, $theme-accent-b, 0.4),
+                        0 0 30px rgba($theme-accent-r, $theme-accent-g, $theme-accent-b, 0.2);
+        }
     }
 }

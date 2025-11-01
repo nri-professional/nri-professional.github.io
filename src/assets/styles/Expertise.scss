@@ -26,6 +26,20 @@
 .skills-container .skills-grid .skill {
     align-items: center;
     text-align: left;
+    transition: transform $transition-normal, 
+                opacity $transition-normal;
+    padding: $spacing-md;
+    border-radius: $border-radius-md;
+    
+    &:hover {
+        transform: translateY(-3px);
+        opacity: 0.95;
+        
+        svg {
+            transform: scale(1.1);
+            transition: transform $transition-fast;
+        }
+    }
 }
   
 .chip {
@@ -33,7 +47,9 @@
     background-color: white !important;
     font-size: $font-size-small !important;
     height: 25px !important;
-    transition: background-color $transition-normal, color $transition-normal !important;
+    transition: background-color $transition-normal, 
+                color $transition-normal,
+                transform $transition-fast !important;
   
     span {
         font-family: $font-family-code;
@@ -43,6 +59,10 @@
 
     svg {
         height: $icon-size-sm !important;
+    }
+    
+    &:hover {
+        transform: scale(1.05);
     }
 }
 

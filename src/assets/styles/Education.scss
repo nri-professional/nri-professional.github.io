@@ -30,12 +30,20 @@
     border: 1px solid theme-color($theme-dark, card-border);
     border-radius: $border-radius-md;
     padding: $spacing-xl;
-    transition: transform $transition-normal, box-shadow $transition-normal, background-color $transition-normal, border-color $transition-normal;
+    transition: transform $transition-normal, 
+                box-shadow $transition-normal, 
+                background-color $transition-normal, 
+                border-color $transition-normal;
 
     &:hover {
         transform: translateY(-5px);
         box-shadow: $shadow-lg rgba($theme-accent-r, $theme-accent-g, $theme-accent-b, $shadow-opacity-medium);
         border-color: rgba($theme-accent-r, $theme-accent-g, $theme-accent-b, $shadow-opacity-heavy);
+    }
+    
+    &:focus-within {
+        outline: 2px solid rgba($theme-accent-r, $theme-accent-g, $theme-accent-b, 0.6);
+        outline-offset: 2px;
     }
 }
 

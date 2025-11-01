@@ -79,6 +79,7 @@ function Navigation({ parentToChild, modeChange }: NavigationProps) {
         textAlign: 'center',
         backgroundColor: themeColors.background,
         height: '100%',
+        transition: 'background-color 0.3s ease',
       }}
     >
       <Box
@@ -91,9 +92,18 @@ function Navigation({ parentToChild, modeChange }: NavigationProps) {
           justifyContent: 'center',
           gap: '8px',
           fontWeight: 'bold',
+          transition: 'color 0.3s ease',
         }}
       >
-        <ListIcon sx={{ color: themeColors.text }} />
+        <ListIcon 
+          sx={{ 
+            color: themeColors.text,
+            transition: 'transform 0.15s ease-in-out, color 0.3s ease',
+            '&:hover': {
+              transform: 'scale(1.1)',
+            },
+          }} 
+        />
         <p className="mobile-menu-top" style={{ margin: 0, color: themeColors.text }}>
           Menu
         </p>
@@ -107,9 +117,19 @@ function Navigation({ parentToChild, modeChange }: NavigationProps) {
                 textAlign: 'center',
                 color: themeColors.text,
                 fontFamily: TYPOGRAPHY.fontFamily,
+                transition: 'all 0.3s ease',
                 '&:hover': {
                   backgroundColor: themeColors.hoverBackground,
                   color: COLORS.theme.accent,
+                  transform: 'translateX(4px)',
+                },
+                '&:focus': {
+                  outline: `2px solid ${COLORS.theme.accent}`,
+                  outlineOffset: '2px',
+                },
+                '&:active': {
+                  backgroundColor: themeColors.hoverBackground,
+                  transform: 'translateX(2px)',
                 },
               }} 
               onClick={() => scrollToSection(item[1])}
@@ -121,6 +141,7 @@ function Navigation({ parentToChild, modeChange }: NavigationProps) {
                   color: themeColors.text,
                   sx: {
                     color: `${themeColors.text} !important`,
+                    transition: 'color 0.3s ease',
                   },
                 }}
                 sx={{
@@ -146,7 +167,19 @@ function Navigation({ parentToChild, modeChange }: NavigationProps) {
             aria-label="open drawer"
             edge="start"
             onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { sm: 'none' } }}
+            sx={{ 
+              mr: 2, 
+              display: { sm: 'none' },
+              transition: 'transform 0.15s ease-in-out, color 0.3s ease',
+              '&:hover': {
+                transform: 'scale(1.1)',
+              },
+              '&:focus': {
+                outline: `2px solid ${COLORS.theme.accent}`,
+                outlineOffset: '2px',
+                borderRadius: '4px',
+              },
+            }}
           >
             <MenuIcon />
           </IconButton>
@@ -154,13 +187,35 @@ function Navigation({ parentToChild, modeChange }: NavigationProps) {
             <LightModeIcon 
               onClick={modeChange}
               aria-label="Switch to light mode"
-              sx={{ cursor: 'pointer' }}
+              sx={{ 
+                cursor: 'pointer',
+                transition: 'transform 0.15s ease-in-out, color 0.3s ease',
+                '&:hover': {
+                  transform: 'scale(1.1)',
+                },
+                '&:focus': {
+                  outline: `2px solid ${COLORS.theme.accent}`,
+                  outlineOffset: '4px',
+                  borderRadius: '4px',
+                },
+              }}
             />
           ) : (
             <DarkModeIcon 
               onClick={modeChange}
               aria-label="Switch to dark mode"
-              sx={{ cursor: 'pointer' }}
+              sx={{ 
+                cursor: 'pointer',
+                transition: 'transform 0.15s ease-in-out, color 0.3s ease',
+                '&:hover': {
+                  transform: 'scale(1.1)',
+                },
+                '&:focus': {
+                  outline: `2px solid ${COLORS.theme.accent}`,
+                  outlineOffset: '4px',
+                  borderRadius: '4px',
+                },
+              }}
             />
           )}
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
@@ -186,6 +241,7 @@ function Navigation({ parentToChild, modeChange }: NavigationProps) {
               boxSizing: 'border-box', 
               width: drawerWidth,
               backgroundColor: themeColors.background,
+              transition: 'background-color 0.3s ease, transform 0.3s ease',
             },
           }}
         >

@@ -24,7 +24,10 @@
   
 .zoom {
     border-radius: $border-radius-sm;
-    transition: transform $transition-normal, box-shadow $transition-normal, background-color $transition-normal;
+    transition: transform $transition-normal, 
+                box-shadow $transition-normal, 
+                background-color $transition-normal,
+                border-color $transition-normal;
     margin: 0 auto;
     display: block;
     max-width: 100%;
@@ -35,12 +38,18 @@
     background-color: theme-color($theme-dark, card-bg);
     padding: $spacing-md;
     border: 1px solid transparent;
+    cursor: pointer;
 }
 
 .zoom:hover {
     transform: scale(1.05);
     box-shadow: $shadow-lg rgba($theme-accent-r, $theme-accent-g, $theme-accent-b, $shadow-opacity-medium);
     border-color: rgba($theme-accent-r, $theme-accent-g, $theme-accent-b, $shadow-opacity-heavy);
+}
+
+.zoom:focus {
+    outline: 2px solid rgba($theme-accent-r, $theme-accent-g, $theme-accent-b, 0.8);
+    outline-offset: 4px;
 }
 
 .light-mode .zoom {

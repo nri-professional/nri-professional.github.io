@@ -12,14 +12,15 @@ function Main() {
   return (
     <div className="container">
       <div className="about-section">
-        <div className="image-wrapper">
-          <img src="https://avatars.githubusercontent.com/u/228733848" alt="Avatar" />
-        </div>
-        <div className="content">
-          <SocialIcons className="social_icons" />
-          <h1>Nicholas Ricketts</h1>
-          <p>Full-Stack Developer</p>
-          <SocialIcons className="mobile_social_icons" />
+        <div className="profile-card">
+          <div className="profile-avatar">
+            <img src="https://avatars.githubusercontent.com/u/228733848" alt="Avatar" />
+          </div>
+          <div className="profile-content">
+            <SocialIcons className="profile-social-icons" />
+            <h1 className="profile-name">Nicholas Ricketts</h1>
+            <p className="profile-subtitle">Full-Stack Developer</p>
+          </div>
         </div>
       </div>
     </div>

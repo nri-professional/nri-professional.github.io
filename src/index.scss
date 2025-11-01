@@ -12,6 +12,10 @@
   --dark-mode-text: #{$color-text-light};
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   font-family: $font-family-system;
@@ -62,11 +66,35 @@ p, a, h1, h2, h3, h4, h5, label, button {
     font-family: $font-family-primary;
     text-transform: initial;
     padding: 6px $spacing-sm;
+    transition: color $transition-normal,
+                background-color $transition-normal,
+                transform $transition-fast;
+    
+    &:hover {
+      transform: translateY(-1px);
+    }
+    
+    &:focus {
+      outline: 2px solid rgba($theme-accent-r, $theme-accent-g, $theme-accent-b, 0.8);
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
   }
 
   svg {
     cursor: pointer;
-    transition: color $transition-normal;
+    transition: color $transition-normal,
+                transform $transition-fast;
+    
+    &:hover {
+      transform: scale(1.1);
+    }
+    
+    &:focus {
+      outline: 2px solid rgba($theme-accent-r, $theme-accent-g, $theme-accent-b, 0.8);
+      outline-offset: 4px;
+      border-radius: 4px;
+    }
   }
 }
 
