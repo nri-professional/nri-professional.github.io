@@ -1,122 +1,62 @@
-# Nicholas Ricketts - Portfolio Website
+<div align="center">
 
-A modern, responsive portfolio website built with React, TypeScript, and SCSS.
+# Hi, I'm Nicholas Ricketts!
 
-## 🚀 Features
+**Full Stack Developer | Communicator | Software Connoisseur**
 
-- **Dark/Light Mode**: System-aware theme switching with smooth transitions
-- **Responsive Design**: Mobile-first approach with breakpoints
-- **Modern Stack**: React 18, TypeScript, Material-UI, FontAwesome
-- **Theme Customization**: Centralized SCSS variables for easy theming
-- **Content Management**: Simple data arrays for easy content updates
-- **Accessibility**: ARIA labels, semantic HTML, keyboard navigation
+[![Portfolio Website](https://img.shields.io/badge/🌐_Portfolio-Live-blue)](https://nri-professional.github.io/)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0077B5?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/nicholasricketts/)
+[![GitHub](https://img.shields.io/badge/GitHub-Follow-181717?logo=github&logoColor=white)](https://github.com/nri-professional)
+[![Email](https://img.shields.io/badge/Email-Contact-D14836?logo=gmail&logoColor=white)](mailto:nicholasricketts59@gmail.com)
 
-## 📁 Project Structure
+</div>
 
-```
-src/
-├── components/      # React components
-├── assets/         # Images and styles
-├── hooks/          # Custom React hooks
-├── utils/          # Utilities and constants
-└── types/          # TypeScript definitions
-```
 
-See [PROJECT_STRUCTURE.md](./PROJECT_STRUCTURE.md) for detailed structure documentation.
 
-## 🛠️ Getting Started
+## ℹ️ About This Portfolio
 
-### Prerequisites
+This is my personal portfolio website showcasing my projects, experience, and technical expertise. Built with a focus on clean design, smooth user experience, and modern web technologies.
 
-- Node.js 16+ 
-- npm or yarn
+What are you waiting for? Visit it now [here](https://nri-professional.github.io/)!
 
-### Installation
+## 🤖 AI Transparency
 
-```bash
-npm install
-```
+This portfolio was developed with the assistance of AI tools for code generation, refactoring, and problem-solving. However, I want to be transparent about what was and wasn't AI-generated:
 
-### Development
+- **AI-assisted development**: Used for code structure, component organization, styling, and technical implementation
+- **No AI-generated images**: All images and visual assets are either created manually or sourced appropriately
+- **Verified content**: All information presented (projects, experience, education, skills) is accurate and verified
 
-```bash
-npm start
-```
+I believe in transparency about the tools and processes used in development, and I'm always happy to discuss the technical implementation in detail.
 
-Opens [http://localhost:3000](http://localhost:3000) in your browser.
-
-### Build
-
-```bash
-npm run build
-```
-
-### Deploy
-
-```bash
-npm run deploy
-```
-
-Deploys to GitHub Pages (configured in `package.json`).
-
-## 📖 Documentation
-
-- **[Content Editing Guide](./CONTENT_EDITING_GUIDE.md)**: How to edit projects, education, skills, and timeline
-- **[Theme Customization Guide](./THEME_CUSTOMIZATION_GUIDE.md)**: How to customize colors, fonts, and styling
-- **[Project Structure Guide](./PROJECT_STRUCTURE.md)**: Understanding the codebase organization
-
-## 🎨 Customization
-
-### Quick Theme Change
-
-Edit `src/assets/styles/_variables.scss`:
-
-```scss
-$theme-accent: #your-color;
-```
-
-### Edit Content
-
-- **Projects**: `src/components/Project.tsx`
-- **Education**: `src/components/Education.tsx`
-- **Skills**: `src/components/Expertise.tsx`
-- **Experience**: `src/components/Timeline.tsx`
-
-See [CONTENT_EDITING_GUIDE.md](./CONTENT_EDITING_GUIDE.md) for details.
+I want to emphasize that I am open to projects that use AI and those that don't. It's up to team preference. Unfortunately, it seems nearly impossible to completely avoid AI use in the current state of computing. To read more about the environmental impact of AI, see [here](https://news.mit.edu/2025/explained-generative-ai-environmental-impact-0117).
 
 ## 🏗️ Built With
 
-- [React](https://reactjs.org/) - UI library
-- [TypeScript](https://www.typescriptlang.org/) - Type safety
-- [Material-UI](https://mui.com/) - Component library
-- [FontAwesome](https://fontawesome.com/) - Icons
-- [SCSS](https://sass-lang.com/) - Styling
-- [React Vertical Timeline](https://github.com/stephane-monnot/react-vertical-timeline) - Timeline component
+This portfolio is built with modern web technologies:
 
-## 📝 Best Practices
+- **[React](https://reactjs.org/)** - UI library for building component-based interfaces
+- **[TypeScript](https://www.typescriptlang.org/)** - Type-safe JavaScript
+- **[Material-UI](https://mui.com/)** - React component library
+- **[FontAwesome](https://fontawesome.com/)** - Icon library
+- **[SCSS](https://sass-lang.com/)** - CSS preprocessor
+- **[React Vertical Timeline](https://github.com/stephane-monnot/react-vertical-timeline)** - Timeline component
 
-This project follows industry best practices:
+## 📬 Get In Touch
 
-- ✅ **DRY Principles**: No code duplication
-- ✅ **Type Safety**: TypeScript throughout
-- ✅ **Component Reusability**: Modular card components
-- ✅ **SCSS Best Practices**: Variables, maps, semantic naming
-- ✅ **Import Organization**: Consistent import patterns
-- ✅ **Documentation**: Comprehensive guides and comments
-- ✅ **Accessibility**: ARIA labels, semantic HTML
-- ✅ **Performance**: Optimized builds, lazy loading ready
+I'm always open to discussing new opportunities, interesting projects, or just having a chat about technology!
 
-## 📄 License
-
-This project was developed using a template from [yujisatojr/react-portfolio-template](https://github.com/yujisatojr/react-portfolio-template).
-
-## 👤 Author
-
-**Nicholas Ricketts**
-- GitHub: [@nri-professional](https://github.com/nri-professional)
-- LinkedIn: [nicholasricketts](https://www.linkedin.com/in/nicholasricketts/)
-- Email: nicholasricketts59@gmail.com
+- **📧 Email**: [nicholasricketts59@gmail.com](mailto:nicholasricketts59@gmail.com)
+- **💼 LinkedIn**: [linkedin.com/in/nicholasricketts](https://www.linkedin.com/in/nicholasricketts/)
+- **💻 GitHub**: [github.com/nri-professional](https://github.com/nri-professional)
+- **🌐 Portfolio**: [nri-professional.github.io](https://nri-professional.github.io/)
 
 ---
 
-Built with ❤️ using React and TypeScript
+<div align="center">
+
+**Thanks for visiting!** ✨
+
+*Built with ❤️ using React and TypeScript*
+
+</div>

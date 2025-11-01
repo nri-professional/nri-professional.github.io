@@ -10,8 +10,6 @@
  *   icon: ICONS.react      // For Expertise
  */
 
-import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
-
 // Brand icons (from @fortawesome/free-brands-svg-icons)
 import { 
   faReact,

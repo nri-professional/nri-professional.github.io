@@ -11,7 +11,7 @@ import { VerticalTimelineElement } from 'react-vertical-timeline-component';
 import { useThemeDetection } from '../../hooks/useThemeDetection';
 
 // Utils
-import { getThemeColors, COLORS } from '../../utils/themeUtils';
+import { getThemeColors } from '../../utils/themeUtils';
 
 // Types
 import type { TimelineItemProps } from '../../types';
