@@ -45,10 +45,10 @@ function ProjectCard({ title, description, image, link, imageAlt }: ProjectCardP
     >
       {link ? (
         <>
-          <a href={link} target="_blank" rel="noreferrer" onClick={(e) => e.stopPropagation()}>
+          <a href={link} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()}>
             <img src={image} className="zoom" alt={imageAlt || title}/>
           </a>
-          <a href={link} target="_blank" rel="noreferrer" onClick={(e) => e.stopPropagation()}>
+          <a href={link} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()}>
             <h2>{title}</h2>
           </a>
         </>

@@ -58,7 +58,7 @@ function SocialIcons({ className, emailUrl }: SocialIconsProps) {
           key={link.name}
           href={link.url}
           target="_blank"
-          rel="noreferrer"
+          rel="noopener noreferrer"
           aria-label={`Visit ${link.name} profile`}
         >
           <FontAwesomeIcon icon={link.icon} />
